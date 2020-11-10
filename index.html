@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Outreach Ministry</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class = "navbar-brand" href="#"><img src="images/church_logo.png" width="100 px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#resources">Resources</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#connect">Connect</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--- Image Slider -->
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0" class="active"></li>
+        <li data-target="#slides" data-slide-to="1"></li>
+        <li data-target="#slides" data-slide-to="2"></li>
+    </ul>
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="images/assistance3.jpg">
+            <div class="carousel-caption">
+                <h1 class="display-2">Outreach Ministry</h1>
+                <h3>Here to help those in need.</h3>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="images/assistance2.jpg">
+        </div>
+
+        <div class="carousel-item">
+            <img src="images/thriftshop2.jpg">
+        </div>
+    </div>
+</div>
+
+<!--- Jumbotron -->
+<div class="container-fluid" id="about">
+    <div class="row jumbotron">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="lead">The Outreach Ministry provides low-income Kent residents and the homeless with food, water,
+                clothing, utility shut-off assistance, drivers licenses and IDs, referral information, and prayer always.
+                We also provide school supplies and household furnishings, when they are available. Those seeking help must live within the Kent school district, be disabled, have children living with them,
+                or are senior citizens. We always help the homeless.</p>
+        </div>
+
+    </div>
+</div>
+
+<!--- Welcome Section -->
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Are you seeking help?</h1>
+        </div>
+        <hr>
+        <div class="col-12">
+            <p class="lead">Minimum Qualifications: </p>
+            <p class="lead">1. Must reside within Kent school zip code boundary (98030, 98031, 98032, 98042, 98058)</p>
+            <p class="lead">2. We support all those who are currently without permanent shelter</p>
+        </div>
+    </div>
+</div>
+
+<!--- Three Column Section -->
+<div class="container">
+    <p>Appointments are made first come first served. Online form is only accessible during business hours.
+    If you cannot access form it is either outside of business hours or we have filled our appointments for the week.
+        Please try again next Monday beginning at 1 PM PST.</p>
+    <form id="guestForm" method="post" action="confirmation.php">
+
+        <!-- Row 1 Start -->
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <fieldset class="form-group">
+                    <legend>Contact Info</legend>
+
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <span class="required">*</span>
+                        <input class="form-control" type="text" id="firstname" name="fname" aria-describedby="required-firstname">
+                        <span class="d-none text-danger" id="errorFname">Please enter a first name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <span class="required">*</span>
+                        <input class="form-control" type="text" id="lastname" aria-describedby="required-lastname">
+                        <span class="d-none text-danger" id="errorLname">Please enter a last name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobtitle">Job Title</label>
+                        <input class="form-control" type="text" id="jobtitle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input class="form-control" type="text" id="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn URL</label>
+                        <input class="form-control" type="text" id="linkedin">
+                        <span class="d-none text-danger" id="invalidLinkedIn">Please enter a valid LinkedIn URL address</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <span class="d-none required" id="emailAsterisk">*</span>
+                        <input class="form-control" type="email" id="email">
+                        <span class="d-none text-danger" id="noEmail">Please enter your email address</span>
+                        <span class="d-none text-danger" id="invalidEmail">Please enter a valid email address.</span>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <fieldset class="form-group">
+                    <legend>How we met</legend>
+
+                    <div class="form-group">
+                        <label for="meettype" aria-describedby="required-how did we meet">How did we meet?</label>
+                        <span class="required">*</span>
+                        <select class="custom-select" id="meettype">
+                            <option value="0">Choose</option>
+                            <option value="meetup">Meetup</option>
+                            <option value="jobfair">Job Fair</option>
+                            <option value="jobfair">College</option>
+                            <option value="notmet">We haven't met yet</option>
+                            <option value="other">Other (please specify)</option>
+                        </select>
+                        <span class="d-none text-danger" id="errorMeetSelection">Please let me know how did we met.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="othertext">Other (please specify)</label>
+                        <textarea class="form-control" id="othertext" rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message (a text area)</label>
+                        <textarea class="form-control" id="message" rows="11"></textarea>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+        <!-- Row 1 End -->
+
+        <!-- Row 2 Start -->
+        <div class="row">
+            <fieldset class="form-group">
+                <legend>Mailing list</legend>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" value="" id="mailinglistcheck">
+                    <label class="form-check-label" for="mailinglistcheck">Please add me to your mailing list</label>
+                </div>
+
+                <div class="form-group">
+                    <br>
+                    <label class="d-block">Choose an email format</label>
+
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="html" name="emailformat" class="form-check-input">
+                        <label class="form-check-label" for="html">HTML</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="text" name="emailformat" class="form-check-input">
+                        <label class="form-check-label" for="text">Text</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <!-- Row 2 End -->
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <br>
+        <small><span class="required">* </span>Required Field</small>
+    </form>
+
+    <hr class="my-4">
+</div>
+
+<!--- Two Column Section -->
+<div class="container-fluid padding" id="resources">
+
+    <div class="row welcome text-center">
+
+        <div class="col-12">
+            <h1 class="display-5">Other Resources Available</h1>
+        </div>
+
+        <div class="col-6">
+            <i class="fas fa-phone-square"></i>
+            <a href="https://www.211.org" style="text-decoration: none; color: #563d7c;"><h3>211</h3></a>
+            <p>211 is the most comprehensive source of locally curated social services information in the U.S. and most of Canada.</p>
+        </div>
+
+        <div class="col-6">
+            <i class="fas fa-church"></i>
+            <a href="https://kentmethodist.com/assistance" style="text-decoration: none; color: #2163af;"><h3>Kent United Methodist Church</h3></a>
+            <p>A welcoming and affirming place</p>
+        </div>
+    </div>
+</div>
+
+<hr class="my-4">
+
+<!--- Meet the team -->
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Services we provide</h1>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!--- Cards -->
+<div class="container-fluid padding" id="services">
+    <div class="row padding">
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="images/thriftshop.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">A Thrift Store Voucher</h4>
+                    <p class="card-text">Every six months</p>
+                    <p class="card-text">Good for clothing items and small household items</p>
+                    <p class="card-text">Thrift Store Hours: TBA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="images/food1.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Emergency Food/Toiletries</h4>
+                    <p class="card-text">Once per month</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="images/assistance1.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Rent and Utility Funds (Electricity, Water)</h4>
+                    <p class="card-text">1 time per calendar year</p>
+                    <p class="card-text">Person seeking help must also be the name on bill</p>
+                    <p class="card-text">Must have urgent or shut-off notice</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr class="my-4">
+</div>
+
+<!--- Connect -->
+<div class="container-fluid padding" id="connect">
+    <div class="row text-center padding">
+
+        <div class="col-12">
+            <h2>Connect</h2>
+        </div>
+
+        <div class="col-12 social padding">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</div>
+
+<!--- Footer -->
+<footer>
+    <div class="container-fluid padding">
+        <div class="row text-center">
+
+            <div class="col-md-4">
+                <img src="images/church_logo.png" width="100 px">
+                <hr class="light">
+                <p>253-852-4100</p>
+                <p>postrander@stjameskent.org</p>
+                <p>24447 94th Ave. S</p>
+                <p>Kent, WA 98030</p>
+            </div>
+
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Our Hours</h5>
+                <hr class="light">
+                <p>Monday: 1pm - 4pm</p>
+                <p>Tuesday: 9am - 12pm</p>
+                <p>Wednesday: 1pm - 4pm</p>
+            </div>
+
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Service Area</h5>
+                <hr class="light">
+                <p>Kent, WA, 98030</p>
+                <p>Kent, WA, 98031</p>
+                <p>Kent, WA, 98032</p>
+                <p>Kent, WA, 98042</p>
+                <p>Kent, WA, 98058</p>
+            </div>
+
+            <div class="col-12">
+                <hr class="light-100">
+                <h5>Made with <i class="fas fa-heart"></i> by Green River College students.</h5>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
