@@ -37,54 +37,40 @@ function validate()
         isValid = false;
     }
 
-    // Validate Email, if supplied. Email is optional at this time.
-    let email = document.getElementById("email").value;
-    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if(email !== "")
+    // Validate Email
+    if(!validateEmail())
     {
-        if (!email.match(emailRegex))
-        {
-            let invalidEmail = document.getElementById("invalidEmail");
-            invalidEmail.classList.remove("d-none");
-            isValid = false;
-        }
-    }
-
-    // Validate LinkedIn URL, if supplied.
-    let linkedInURL = document.getElementById("linkedin").value;
-    let linkedInRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
-
-    if(linkedInURL !== "")
-    {
-        if (!linkedInURL.match(linkedInRegex))
-        {
-            let invalidLinkedIn = document.getElementById("invalidLinkedIn");
-            invalidLinkedIn.classList.remove("d-none");
-            isValid = false;
-        }
-    }
-
-    // Validate How did we meet?
-    let meetSelection = document.getElementById("meettype");
-    if(meetSelection.options[meetSelection.selectedIndex].value == 0)
-    {
-        let errorMeetSelection = document.getElementById("errorMeetSelection");
-        errorMeetSelection.classList.remove("d-none");
         isValid = false;
     }
 
-    // Validate Email and make it required, if mailing list is checked.
-    let mailingList = document.getElementById("mailinglistcheck");
-    if(mailingList.checked)
+    // Validate phone
+    if(!validatePhone())
     {
-        let emailAsterisk = document.getElementById("emailAsterisk");
-        emailAsterisk.classList.remove("d-none");
+        isValid = false;
+    }
 
-        if(!validateEmail())
-        {
-            isValid = false;
-        }
+    return isValid;
+}
+
+function validatePhone()
+{
+    let phone = document.getElementById("phone").value;
+    let phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+    let isValid = true;
+
+    if(phone === "")
+    {
+        let invalidPhone = document.getElementById("invalidPhone");
+        invalidPhone.classList.remove("d-none");
+        isValid = false;
+    }
+
+    else if(!phone.match(phoneRegex))
+    {
+        let invalidPhone = document.getElementById("invalidPhone");
+        invalidPhone.classList.remove("d-none");
+        isValid = false;
     }
 
     return isValid;
@@ -112,6 +98,68 @@ function validateEmail()
 
     return isValid;
 }
+
+// Form - Services - Handling
+document.getElementById("utilities").onclick = utilDocs;
+document.getElementById("rent").onclick = rentDocs;
+document.getElementById("gas").onclick = gasDocs;
+document.getElementById("other").onclick = showOther;
+
+function utilDocs()
+{
+    let checkbox = document.getElementById("utilities");
+    let hide = document.getElementById("utilDocs")
+    if (checkbox.checked)
+    {
+        hide.classList.remove("d-none");
+    }
+    else
+    {
+        hide.classList.add("d-none");
+    }
+}
+
+function rentDocs()
+{
+    let checkbox = document.getElementById("rent");
+    let hide = document.getElementById("rentDocs")
+    if (checkbox.checked)
+    {
+        hide.classList.remove("d-none");
+    }
+    else
+    {
+        hide.classList.add("d-none");
+    }
+}
+
+function gasDocs()
+{
+    let checkbox = document.getElementById("gas");
+    let hide = document.getElementById("gasDocs")
+    if (checkbox.checked)
+    {
+        hide.classList.remove("d-none");
+    }
+    else
+    {
+        hide.classList.add("d-none");
+    }
+}
+
+function showOther()
+{
+    let checkbox = document.getElementById("other");
+    let hide = document.getElementById("showOther");
+    if(checkbox.checked)
+    {
+        hide.classList.remove("d-none");
+    } else
+    {
+        hide.classList.add("d-none");
+    }
+}
+
 
 
 

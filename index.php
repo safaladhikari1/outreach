@@ -1,52 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Outreach Ministry</title>
-</head>
-<body>
+// Error Reporting Turned On
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-        <a class = "navbar-brand" href="#"><img src="images/church_logo.png" width="100 px"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#resources">Resources</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#connect">Connect</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+$page_title = "Outreach Ministry";
+include('includes/header.html');
+?>
 
 <!--- Image Slider -->
 <div id="slides" class="carousel slide" data-ride="carousel">
@@ -78,8 +38,7 @@
 
 <!--- Jumbotron -->
 <div class="container-fluid" id="about">
-    <div class="row jumbotron">
-
+    <div class="row jumbotron" >
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <p class="lead">The Outreach Ministry provides low-income Kent residents and the homeless with food, water,
                 clothing, utility shut-off assistance, drivers licenses and IDs, referral information, and prayer always.
@@ -107,9 +66,17 @@
 
 <!--- Three Column Section -->
 <div class="container">
+
+    <p>You can fill out online form below during our business hours or call 253-852-4100</p>
+
     <p>Appointments are made first come first served. Online form is only accessible during business hours.
     If you cannot access form it is either outside of business hours or we have filled our appointments for the week.
         Please try again next Monday beginning at 1 PM PST.</p>
+
+    <div class="col-12 text-center">
+        <h2>Online Form</h2>
+    </div>
+
     <form id="guestForm" method="post" action="confirmation.php">
 
         <!-- Row 1 Start -->
@@ -117,7 +84,6 @@
             <div class="col-md-6 col-lg-6">
                 <fieldset class="form-group">
                     <legend>Contact Info</legend>
-
                     <div class="form-group">
                         <label for="firstname">First Name</label>
                         <span class="required">*</span>
@@ -133,89 +99,115 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="jobtitle">Job Title</label>
-                        <input class="form-control" type="text" id="jobtitle">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input class="form-control" type="text" id="company">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="linkedin">LinkedIn URL</label>
-                        <input class="form-control" type="text" id="linkedin">
-                        <span class="d-none text-danger" id="invalidLinkedIn">Please enter a valid LinkedIn URL address</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email address</label>
+                        <label for="email">Email Address</label>
+                        <span class="required">*</span>
                         <span class="d-none required" id="emailAsterisk">*</span>
                         <input class="form-control" type="email" id="email">
                         <span class="d-none text-danger" id="noEmail">Please enter your email address</span>
                         <span class="d-none text-danger" id="invalidEmail">Please enter a valid email address.</span>
                     </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <span class="required">*</span>
+                        <input class="form-control" type="text" id="phone">
+                        <span class="d-none text-danger" id="invalidPhone">Please enter a valid phone number.</span>
+                    </div>
+
                 </fieldset>
             </div>
 
             <div class="col-md-6 col-lg-6">
                 <fieldset class="form-group">
-                    <legend>How we met</legend>
+                    <legend>What assistance are you seeking? (Check all that apply)</legend>
 
-                    <div class="form-group">
-                        <label for="meettype" aria-describedby="required-how did we meet">How did we meet?</label>
-                        <span class="required">*</span>
-                        <select class="custom-select" id="meettype">
-                            <option value="0">Choose</option>
-                            <option value="meetup">Meetup</option>
-                            <option value="jobfair">Job Fair</option>
-                            <option value="jobfair">College</option>
-                            <option value="notmet">We haven't met yet</option>
-                            <option value="other">Other (please specify)</option>
-                        </select>
-                        <span class="d-none text-danger" id="errorMeetSelection">Please let me know how did we met.</span>
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="utilities" value="utilities" >
+                        <label class="form-check-label"
+                               for="utilities">Utilities (electricity/water)
+                        </label>
+                        <div id="utilDocs" class="d-none">
+                            <span class="text-danger">
+                                * You will need a copy of your current bill showing Name/Address; Urgent/Final notice and Account#
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="othertext">Other (please specify)</label>
-                        <textarea class="form-control" id="othertext" rows="2"></textarea>
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="rent" value="rent" >
+                        <label class='form-check-label'
+                               for="rent">Rent
+                        </label>
+                        <div id="rentDocs" class="d-none">
+                            <span class="text-danger">
+                                * You will need your eviction notice.
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message">Message (a text area)</label>
-                        <textarea class="form-control" id="message" rows="11"></textarea>
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="gas" value="gas" >
+                        <label class="form-check-label"
+                               for="gas">Gas
+                        </label>
+                        <div id="gasDocs" class="d-none">
+                            <span class="text-danger">
+                                * You will need your valid Driver's License.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="household" value="household" >
+                        <label class="form-check-label"
+                               for="household">Clothing and Household items
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="license" value="license" >
+                        <label class="form-check-label"
+                               for="license">ID or Driver's License
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="food" value="food" >
+                        <label class="form-check-label"
+                               for="food">Food
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox" name="services[]"
+                               id="other" value="other" >
+                        <label class="form-check-label"
+                               for="other">Other
+                        </label>
+
+                        <div class="form-group d-none" id="showOther">
+                            <label for="otherService">Please enter your needs below:</label>
+                            <textarea class="form-control" id="otherService" name="otherService" rows="3"></textarea>
+                        </div>
                     </div>
 
                 </fieldset>
             </div>
         </div>
         <!-- Row 1 End -->
-
-        <!-- Row 2 Start -->
-        <div class="row">
-            <fieldset class="form-group">
-                <legend>Mailing list</legend>
-
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" value="" id="mailinglistcheck">
-                    <label class="form-check-label" for="mailinglistcheck">Please add me to your mailing list</label>
-                </div>
-
-                <div class="form-group">
-                    <br>
-                    <label class="d-block">Choose an email format</label>
-
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="html" name="emailformat" class="form-check-input">
-                        <label class="form-check-label" for="html">HTML</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="text" name="emailformat" class="form-check-input">
-                        <label class="form-check-label" for="text">Text</label>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
 
         <!-- Row 2 End -->
         <input class="btn btn-primary" type="submit" value="Submit">
@@ -252,7 +244,7 @@
 <hr class="my-4">
 
 <!--- Meet the team -->
-<div class="container-fluid padding">
+<div class="container-fluid padding" id="services">
     <div class="row welcome text-center">
         <div class="col-12">
             <h1 class="display-4">Services we provide</h1>
@@ -262,10 +254,10 @@
 </div>
 
 <!--- Cards -->
-<div class="container-fluid padding" id="services">
+<div class="container-fluid padding">
     <div class="row padding">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <img class="card-img-top" src="images/thriftshop.jpg">
                 <div class="card-body">
@@ -277,7 +269,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <img class="card-img-top" src="images/food1.jpg">
                 <div class="card-body">
@@ -287,14 +279,25 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <img class="card-img-top" src="images/assistance1.jpg">
                 <div class="card-body">
-                    <h4 class="card-title">Rent and Utility Funds (Electricity, Water)</h4>
+                    <h4 class="card-title">Rent and Utilities (Electricity, Water)</h4>
                     <p class="card-text">1 time per calendar year</p>
                     <p class="card-text">Person seeking help must also be the name on bill</p>
                     <p class="card-text">Must have urgent or shut-off notice</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img class="card-img-top" src="images/Gas-Pump.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Gas Voucher</h4>
+                    <p class="card-text">Every six months</p>
+                    <p class="card-text">Must have a valid/current Driver's license (not an ID Card)</p>
                 </div>
             </div>
         </div>
@@ -321,54 +324,6 @@
     </div>
 </div>
 
-<!--- Footer -->
-<footer>
-    <div class="container-fluid padding">
-        <div class="row text-center">
-
-            <div class="col-md-4">
-                <img src="images/church_logo.png" width="100 px">
-                <hr class="light">
-                <p>253-852-4100</p>
-                <p>postrander@stjameskent.org</p>
-                <p>24447 94th Ave. S</p>
-                <p>Kent, WA 98030</p>
-            </div>
-
-            <div class="col-md-4">
-                <hr class="light">
-                <h5>Our Hours</h5>
-                <hr class="light">
-                <p>Monday: 1pm - 4pm</p>
-                <p>Tuesday: 9am - 12pm</p>
-                <p>Wednesday: 1pm - 4pm</p>
-            </div>
-
-            <div class="col-md-4">
-                <hr class="light">
-                <h5>Service Area</h5>
-                <hr class="light">
-                <p>Kent, WA, 98030</p>
-                <p>Kent, WA, 98031</p>
-                <p>Kent, WA, 98032</p>
-                <p>Kent, WA, 98042</p>
-                <p>Kent, WA, 98058</p>
-            </div>
-
-            <div class="col-12">
-                <hr class="light-100">
-                <h5>Made with <i class="fas fa-heart"></i> by Green River College students.</h5>
-            </div>
-
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
-<script src="js/scripts.js"></script>
-</body>
-</html>
+<?php
+include('includes/footer.html');
+?>
