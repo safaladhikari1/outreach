@@ -1,10 +1,9 @@
 <?php
-
 // Error Reporting Turned On
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$page_title = "Outreach Ministry";
+$page_title = "Outreach Ministry-Test";
 include('includes/header.html');
 ?>
 
@@ -38,11 +37,13 @@ include('includes/header.html');
 
 <!--- Jumbotron -->
 <div class="container-fluid" id="about">
-    <div class="row jumbotron" >
+    <div class="row jumbotron">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <p class="lead">The Outreach Ministry provides low-income Kent residents and the homeless with food, water,
-                clothing, utility shut-off assistance, drivers licenses and IDs, referral information, and prayer always.
-                We also provide school supplies and household furnishings, when they are available. Those seeking help must live within the Kent school district, be disabled, have children living with them,
+                clothing, utility shut-off assistance, drivers licenses and IDs, referral information, and prayer
+                always.
+                We also provide school supplies and household furnishings, when they are available. Those seeking help
+                must live within the Kent school district, be disabled, have children living with them,
                 or are senior citizens. We always help the homeless.</p>
         </div>
 
@@ -70,14 +71,22 @@ include('includes/header.html');
     <p>You can fill out online form below during our business hours or call 253-852-4100</p>
 
     <p>Appointments are made first come first served. Online form is only accessible during business hours.
-    If you cannot access form it is either outside of business hours or we have filled our appointments for the week.
+        If you cannot access form it is either outside of business hours or we have filled our appointments for the
+        week.
         Please try again next Monday beginning at 1 PM PST.</p>
 
+    <hr class="my-4">
+
     <div class="col-12 text-center">
-        <h2>Online Form</h2>
+        <h2>Application Form</h2>
     </div>
 
     <form id="guestForm" method="post" action="confirmation.php">
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="homeless" id="homeless" value="homeless">
+            <label class="form-check-label" for="homeless"><strong>I am currently without residence.</strong></label>
+        </div>
 
         <!-- Row 1 Start -->
         <div class="row">
@@ -87,7 +96,8 @@ include('includes/header.html');
                     <div class="form-group">
                         <label for="firstname">First Name</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="firstname" name="fname" aria-describedby="required-firstname">
+                        <input class="form-control" type="text" id="firstname" name="fname"
+                               aria-describedby="required-firstname">
                         <span class="d-none text-danger" id="errorFname">Please enter a first name</span>
                     </div>
 
@@ -111,20 +121,34 @@ include('includes/header.html');
                         <label for="phone">Phone Number</label>
                         <span class="required">*</span>
                         <input class="form-control" type="text" id="phone">
-                        <span class="d-none text-danger" id="invalidPhone">Please enter a valid phone number.</span>
+                        <span class="d-none text-danger" id="invalidPhone">Please enter a valid phone number</span>
                     </div>
 
+                    <div class="form-group" id="addressDisplay">
+                        <label for="address">Address</label>
+                        <span class="required">*</span>
+                        <input class="form-control" type="text" id="address">
+                        <span class="d-none text-danger" id="errorAddress">Please enter your address</span>
+                    </div>
+
+                    <div class="form-group" id="zipCodeDisplay">
+                        <label for="zipCode">Zip Code</label>
+                        <span class="required">*</span>
+                        <input class="form-control" type="text" id="zipCode">
+                        <span class="d-none text-danger" id="noZipCode">Please enter your zip code</span>
+                        <span class="d-none text-danger" id="invalidZipCode">Please enter a valid zip code</span>
+                    </div>
                 </fieldset>
             </div>
 
             <div class="col-md-6 col-lg-6">
                 <fieldset class="form-group">
-                    <legend>What assistance are you seeking? (Check all that apply)</legend>
+                    <legend>What assistance are you seeking? <br>(Check all that apply)</legend>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="utilities" value="utilities" >
+                               id="utilities" value="utilities">
                         <label class="form-check-label"
                                for="utilities">Utilities (electricity/water)
                         </label>
@@ -135,10 +159,10 @@ include('includes/header.html');
                         </div>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="rent" value="rent" >
+                               id="rent" value="rent">
                         <label class='form-check-label'
                                for="rent">Rent
                         </label>
@@ -149,10 +173,10 @@ include('includes/header.html');
                         </div>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="gas" value="gas" >
+                               id="gas" value="gas">
                         <label class="form-check-label"
                                for="gas">Gas
                         </label>
@@ -163,42 +187,42 @@ include('includes/header.html');
                         </div>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="household" value="household" >
+                               id="household" value="household">
                         <label class="form-check-label"
                                for="household">Clothing and Household items
                         </label>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="license" value="license" >
+                               id="license" value="license">
                         <label class="form-check-label"
                                for="license">ID or Driver's License
                         </label>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="food" value="food" >
+                               id="food" value="food">
                         <label class="form-check-label"
                                for="food">Food
                         </label>
                     </div>
 
-                    <div class="form-check">
+                    <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="other" value="other" >
+                               id="other" value="other">
                         <label class="form-check-label"
                                for="other">Other
                         </label>
 
-                        <div class="form-group d-none" id="showOther">
+                        <div class="form-group d-none mb-2" id="showOther">
                             <label for="otherService">Please enter your needs below:</label>
                             <textarea class="form-control" id="otherService" name="otherService" rows="3"></textarea>
                         </div>
@@ -230,12 +254,14 @@ include('includes/header.html');
         <div class="col-6">
             <i class="fas fa-phone-square"></i>
             <a href="https://www.211.org" style="text-decoration: none; color: #563d7c;"><h3>211</h3></a>
-            <p>211 is the most comprehensive source of locally curated social services information in the U.S. and most of Canada.</p>
+            <p>211 is the most comprehensive source of locally curated social services information in the U.S. and most
+                of Canada.</p>
         </div>
 
         <div class="col-6">
             <i class="fas fa-church"></i>
-            <a href="https://kentmethodist.com/assistance" style="text-decoration: none; color: #2163af;"><h3>Kent United Methodist Church</h3></a>
+            <a href="https://kentmethodist.com/assistance" style="text-decoration: none; color: #2163af;"><h3>Kent
+                    United Methodist Church</h3></a>
             <p>A welcoming and affirming place</p>
         </div>
     </div>
@@ -247,7 +273,7 @@ include('includes/header.html');
 <div class="container-fluid padding" id="services">
     <div class="row welcome text-center">
         <div class="col-12">
-            <h1 class="display-4">Services we provide</h1>
+            <h1 class="display-4">Services We Provide</h1>
         </div>
         <hr>
     </div>
@@ -273,7 +299,7 @@ include('includes/header.html');
             <div class="card">
                 <img class="card-img-top" src="images/food1.jpg">
                 <div class="card-body">
-                    <h4 class="card-title">Emergency Food/Toiletries</h4>
+                    <h4 class="card-title">Emergency Food and Toiletries</h4>
                     <p class="card-text">Once per month</p>
                 </div>
             </div>
@@ -283,8 +309,8 @@ include('includes/header.html');
             <div class="card">
                 <img class="card-img-top" src="images/assistance1.jpg">
                 <div class="card-body">
-                    <h4 class="card-title">Rent and Utilities (Electricity, Water)</h4>
-                    <p class="card-text">1 time per calendar year</p>
+                    <h4 class="card-title">Rent and Utilities</h4>
+                    <p class="card-text">Once per calendar year</p>
                     <p class="card-text">Person seeking help must also be the name on bill</p>
                     <p class="card-text">Must have urgent or shut-off notice</p>
                 </div>
@@ -307,22 +333,42 @@ include('includes/header.html');
 </div>
 
 <!--- Connect -->
-<div class="container-fluid padding" id="connect">
-    <div class="row text-center padding">
 
-        <div class="col-12">
-            <h2>Connect</h2>
+<div class="container-fluid padding" id="connect">
+    <div class="row padding">
+        <div class="col-md-8 col-lg-8">
+            <h1 class="display-5">Get Involved</h1>
+
+            <ul class="lead list-unstyled">Volunteer</ul>
+            <li>Thrift Shop volunteers: Email: <a href="mailto:jacinta@stjameskent.org">jacinta@stjameskent.org</a> for
+                more information.
+            </li>
+            <li>Outreach office phone volunteers: Email: <a href="mailto:postrander@stjameskent.org">postrander@stjameskent.org</a>
+                for more information.
+            </li>
+            <br>
+
+            <ul class="lead list-unstyled">Seasonal opportunities</ul>
+            <li>Winter drive (gloves, socks, hand-warmers)</li>
+            <li>Back-to school drive (backpacks and school supplies)</li>
+            <li>Angel tree (Christmas gifts)</li>
+            <br>
+
+            <ul class="lead list-unstyled">Donations</ul>
+            <li>Canned goods, non-perishables, diapers, personal/feminine hygiene items</li>
+
+            <br>
+            <span class="lead">Make a financial donation by clicking here </span><a
+                    href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=H9ERUZQAKHFUA"
+                    class="btn btn-primary">Make Donation</a>
         </div>
 
-        <div class="col-12 social padding">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="col-md-4 col-lg-4">
+            <img src="images/thriftshop4.jpg" class="img-fluid">
         </div>
     </div>
 </div>
+
 
 <?php
 include('includes/footer.html');

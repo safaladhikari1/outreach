@@ -1,6 +1,27 @@
+let homeless = document.getElementById("homeless");
+homeless.addEventListener("click", toggleLocationFields);
+
 // Register the validate function for the form submit event
 let form = document.getElementById("guestForm");
 form.onsubmit = validate;
+
+function toggleLocationFields()
+{
+    let homeless = document.getElementById("homeless");
+    let addressDisplay = document.getElementById("addressDisplay");
+    let zipCodeDisplay = document.getElementById("zipCodeDisplay");
+
+    if (homeless.checked)
+    {
+        addressDisplay.style = "display: none;";
+        zipCodeDisplay.style = "display: none;";
+    }
+    else
+    {
+        addressDisplay.style = "display: block;";
+        zipCodeDisplay.style = "display: block;";
+    }
+}
 
 //Make all error messages invisible
 function clearErrors()
@@ -47,6 +68,36 @@ function validate()
     if(!validatePhone())
     {
         isValid = false;
+    }
+
+    // Check if without residence
+    let homeless = document.getElementById("homeless");
+
+    // Validate location
+    let address = document.getElementById("address").value;
+    let zipCode = document.getElementById("zipCode").value;
+    if(!homeless.checked)
+    {
+        if(address == "")
+        {
+            let errorAddress = document.getElementById("errorAddress");
+            errorAddress.classList.remove("d-none");
+            isValid = false;
+        }
+
+        if(zipCode == "")
+        {
+            let noZipCode = document.getElementById("noZipCode");
+            noZipCode.classList.remove("d-none");
+            isValid = false;
+        }
+        else if(zipCode != "98030" && zipCode != "98031" && zipCode != "98032" &&
+            zipCode != "98042" && zipCode != "98058")
+        {
+            let invalidZipCode = document.getElementById("invalidZipCode");
+            invalidZipCode.classList.remove("d-none");
+            isValid = false;
+        }
     }
 
     return isValid;
@@ -159,7 +210,6 @@ function showOther()
         hide.classList.add("d-none");
     }
 }
-
 
 
 
