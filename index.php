@@ -84,7 +84,7 @@ include('includes/header.html');
     <form id="guestForm" method="post" action="confirmation.php">
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="homeless" id="homeless" value="homeless">
+            <input class="form-check-input" type="checkbox" name="homeless[]" id="homeless" value="homeless">
             <label class="form-check-label" for="homeless"><strong>I am currently without residence.</strong></label>
         </div>
 
@@ -104,7 +104,7 @@ include('includes/header.html');
                     <div class="form-group">
                         <label for="lastname">Last Name</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="lastname" aria-describedby="required-lastname">
+                        <input class="form-control" type="text" id="lastname" aria-describedby="required-lastname" name="lname">
                         <span class="d-none text-danger" id="errorLname">Please enter a last name</span>
                     </div>
 
@@ -112,7 +112,7 @@ include('includes/header.html');
                         <label for="email">Email Address</label>
                         <span class="required">*</span>
                         <span class="d-none required" id="emailAsterisk">*</span>
-                        <input class="form-control" type="email" id="email">
+                        <input class="form-control" type="email" id="email" name="email">
                         <span class="d-none text-danger" id="noEmail">Please enter your email address</span>
                         <span class="d-none text-danger" id="invalidEmail">Please enter a valid email address.</span>
                     </div>
@@ -120,21 +120,21 @@ include('includes/header.html');
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="phone">
+                        <input class="form-control" type="text" id="phone" name="phone">
                         <span class="d-none text-danger" id="invalidPhone">Please enter a valid phone number</span>
                     </div>
 
                     <div class="form-group" id="addressDisplay">
                         <label for="address">Address</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="address">
+                        <input class="form-control" type="text" id="address" name="address">
                         <span class="d-none text-danger" id="errorAddress">Please enter your address</span>
                     </div>
 
                     <div class="form-group" id="zipCodeDisplay">
                         <label for="zipCode">Zip Code</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="zipCode">
+                        <input class="form-control" type="text" id="zipCode" name="zipcode">
                         <span class="d-none text-danger" id="noZipCode">Please enter your zip code</span>
                         <span class="d-none text-danger" id="invalidZipCode">Please enter a valid zip code</span>
                     </div>
@@ -148,7 +148,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="utilities" value="utilities">
+                               id="utilities" value="Utilities">
                         <label class="form-check-label"
                                for="utilities">Utilities (electricity/water)
                         </label>
@@ -162,7 +162,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="rent" value="rent">
+                               id="rent" value="Rent">
                         <label class='form-check-label'
                                for="rent">Rent
                         </label>
@@ -176,7 +176,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="gas" value="gas">
+                               id="gas" value="Gas">
                         <label class="form-check-label"
                                for="gas">Gas
                         </label>
@@ -190,7 +190,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="household" value="household">
+                               id="household" value="Clothing and Household">
                         <label class="form-check-label"
                                for="household">Clothing and Household items
                         </label>
@@ -199,7 +199,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="license" value="license">
+                               id="license" value="Driver License">
                         <label class="form-check-label"
                                for="license">ID or Driver's License
                         </label>
@@ -208,7 +208,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="food" value="food">
+                               id="food" value="Food">
                         <label class="form-check-label"
                                for="food">Food
                         </label>
@@ -217,7 +217,7 @@ include('includes/header.html');
                     <div class="form-check mb-2">
                         <input class="form-check-input"
                                type="checkbox" name="services[]"
-                               id="other" value="other">
+                               id="other" value="Other">
                         <label class="form-check-label"
                                for="other">Other
                         </label>
