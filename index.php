@@ -18,7 +18,7 @@ include('includes/header.html');
     <div class="carousel-inner">
 
         <div class="carousel-item active">
-            <img src="images/assistance3.jpg">
+            <img src="images/assistance3.jpg" alt="assistance3">
             <div class="carousel-caption">
                 <h1 class="display-2">Outreach Ministry</h1>
                 <h3>Here to help those in need.</h3>
@@ -26,11 +26,11 @@ include('includes/header.html');
         </div>
 
         <div class="carousel-item">
-            <img src="images/assistance2.jpg">
+            <img src="images/assistance2.jpg" alt="assistance2">
         </div>
 
         <div class="carousel-item">
-            <img src="images/thriftshop2.jpg">
+            <img src="images/thriftshop2.jpg" alt="thriftshop">
         </div>
     </div>
 </div>
@@ -96,15 +96,14 @@ include('includes/header.html');
                     <div class="form-group">
                         <label for="firstname">First Name</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="firstname" name="fname"
-                               aria-describedby="required-firstname">
+                        <input class="form-control" type="text" id="firstname" name="fname">
                         <span class="d-none text-danger" id="errorFname">Please enter a first name</span>
                     </div>
 
                     <div class="form-group">
                         <label for="lastname">Last Name</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="lastname" aria-describedby="required-lastname" name="lname">
+                        <input class="form-control" type="text" id="lastname" name="lname">
                         <span class="d-none text-danger" id="errorLname">Please enter a last name</span>
                     </div>
 
@@ -285,7 +284,7 @@ include('includes/header.html');
 
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" src="images/thriftshop.jpg">
+                <img class="card-img-top" src="images/thriftshop.jpg" alt="thriftshop">
                 <div class="card-body">
                     <h4 class="card-title">A Thrift Store Voucher</h4>
                     <p class="card-text">Every six months</p>
@@ -297,7 +296,7 @@ include('includes/header.html');
 
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" src="images/food1.jpg">
+                <img class="card-img-top" src="images/food1.jpg" alt="food">
                 <div class="card-body">
                     <h4 class="card-title">Emergency Food and Toiletries</h4>
                     <p class="card-text">Once per month</p>
@@ -307,7 +306,7 @@ include('includes/header.html');
 
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" src="images/assistance1.jpg">
+                <img class="card-img-top" src="images/assistance1.jpg" alt="assistance1">
                 <div class="card-body">
                     <h4 class="card-title">Rent and Utilities</h4>
                     <p class="card-text">Once per calendar year</p>
@@ -319,7 +318,7 @@ include('includes/header.html');
 
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" src="images/Gas-Pump.jpg">
+                <img class="card-img-top" src="images/Gas-Pump.jpg" alt="gaspump">
                 <div class="card-body">
                     <h4 class="card-title">Gas Voucher</h4>
                     <p class="card-text">Every six months</p>
@@ -336,35 +335,42 @@ include('includes/header.html');
 
 <div class="container-fluid padding" id="connect">
     <div class="row padding">
+
         <div class="col-md-8 col-lg-8">
             <h1 class="display-5">Get Involved</h1>
 
-            <ul class="lead list-unstyled">Volunteer</ul>
-            <li>Thrift Shop volunteers: Email: <a href="mailto:jacinta@stjameskent.org">jacinta@stjameskent.org</a> for
-                more information.
-            </li>
-            <li>Outreach office phone volunteers: Email: <a href="mailto:postrander@stjameskent.org">postrander@stjameskent.org</a>
-                for more information.
-            </li>
+            <p class="lead list-unstyled">Volunteer</p>
+            <ul>
+                <li>Thrift Shop volunteers: Email: <a href="mailto:jacinta@stjameskent.org">jacinta@stjameskent.org</a> for
+                    more information.
+                </li>
+                <li>Outreach office phone volunteers: Email: <a href="mailto:postrander@stjameskent.org">postrander@stjameskent.org</a>
+                    for more information.
+                </li>
+            </ul>
             <br>
 
-            <ul class="lead list-unstyled">Seasonal opportunities</ul>
-            <li>Winter drive (gloves, socks, hand-warmers)</li>
-            <li>Back-to school drive (backpacks and school supplies)</li>
-            <li>Angel tree (Christmas gifts)</li>
+            <p class="lead list-unstyled">Seasonal opportunities</p>
+            <ul>
+                <li>Winter drive (gloves, socks, hand-warmers)</li>
+                <li>Back-to school drive (backpacks and school supplies)</li>
+                <li>Angel tree (Christmas gifts)</li>
+            </ul>
             <br>
 
-            <ul class="lead list-unstyled">Donations</ul>
-            <li>Canned goods, non-perishables, diapers, personal/feminine hygiene items</li>
-
+            <p class="lead list-unstyled">Donations</p>
+            <ul>
+                <li>Canned goods, non-perishables, diapers, personal/feminine hygiene items</li>
+            </ul>
             <br>
+
             <span class="lead">Make a financial donation by clicking here </span><a
                     href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=H9ERUZQAKHFUA"
                     class="btn btn-primary">Make Donation</a>
         </div>
 
         <div class="col-md-4 col-lg-4">
-            <img src="images/thriftshop4.jpg" class="img-fluid">
+            <img src="images/thriftshop4.jpg" class="img-fluid" alt="thriftshop">
         </div>
     </div>
 </div>
