@@ -3,26 +3,79 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$page_title = "Requests";
+session_start();
 
+if(!isset($_SESSION['loggedin']))
+{
+    // Store the page that I'm currently on in the session
+    $_SESSION['page'] = $_SERVER['REQUEST_URI'];
+
+    // Redirect to login
+    header("location: login.php");
+}
+
+$page_title = "Requests";
+//var_dump($_POST);
 include ("includes/header.html");
-require ("includes/database-credentials.php");
+require ($_SERVER['HOME'].'/someFolder/dbcreds.php');
 ?>
 
 <body>
 <div class="container-fluid padding">
-    <h1>Requests</h1>
+
+    <form method="post" action="#" class="form-inline">
+
+        <?php
+            if(isset($_POST['formCheck']))
+            {
+                $sqlUpdateState = "UPDATE formcheck SET `state` = !`state`";
+                mysqli_query($cnxn, $sqlUpdateState);
+            }
+
+            $sqlGetState = "SELECT * FROM formcheck";
+            $result = mysqli_query($cnxn, $sqlGetState);
+
+            //Get the state value
+            foreach ($result as $row) {
+                $formState = $row['state'];
+            }
+
+            echo "<strong>Form Control:</strong>&nbsp";
+
+            echo "<button type='submit' class='btn btn-secondary btn-sm btn-outline-success' name='formCheck'>Enable</button>&nbsp&nbsp";
+            echo "<button type='submit' class='btn btn-secondary btn-sm btn-outline-danger' name='formCheck'>Disable</button>&nbsp&nbsp";
+
+            echo "<strong>Form Status:</strong>&nbsp";
+
+            if($formState == "1")
+            {
+                echo"<div class='alert alert-success' role='alert'>";
+                echo"Form is enabled";
+                echo"</div>";
+            }
+            else if($formState == "0")
+            {
+                echo"<div class='alert alert-danger' role='alert'>";
+                echo"Form is disabled.";
+                echo"</div>";
+            }
+
+            echo "&nbsp&nbsp<a type='button' class='btn btn-secondary btn-sm' href='logout.php'>Log Out</a>";
+        ?>
+    </form>
+
+    <h2 class="text-center">Requests</h2>
+
     <table id="applicants" class="display cell-border compact stripe" style="width: 100%">
         <thead>
             <tr>
                 <td>Applicant ID</td>
                 <td>Submission Time</td>
                 <td>Name</td>
+                <td>Zip Code</td>
                 <td>Email Address</td>
                 <td>Phone Number</td>
-                <td>Address</td>
-                <td>Zip Code</td>
-                <td>Services</td>
+                <td>Services Requested</td>
             </tr>
         </thead>
 
@@ -36,20 +89,18 @@ require ("includes/database-credentials.php");
             $applicant_id = $row['applicant_id'];
             $submission_time = date("M d, Y g:i a", strtotime($row['application_date']));
             $name = $row['first_name'] . " " . $row['last_name'];
+            $zip_code = $row['zip_code'];
             $email = $row['email'];
             $phone = $row['phone'];
-            $address = $row['address'];
-            $zip_code = $row['zip_code'];
             $services = $row['services'];
 
             echo "<tr>";
             echo "<td>$applicant_id</td>";
             echo "<td>$submission_time</td>";
             echo "<td>$name</td>";
+            echo "<td>$zip_code</td>";
             echo "<td>$email</td>";
             echo "<td>$phone</td>";
-            echo "<td>$address</td>";
-            echo "<td>$zip_code</td>";
             echo "<td>$services</td>";
             echo "</tr>";
         }
